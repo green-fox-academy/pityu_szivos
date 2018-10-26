@@ -1,0 +1,87 @@
+
+
+.navbar{
+
+  background-color: #333333;
+}
+
+.navbar button{
+
+  float:right;
+  border-radius: 50%;
+  margin-left: 20px;
+  background-color: blue;
+  font-family: 'Slabo 27px', serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff0099;
+
+}
+.navbar_buttons{
+  display: inline;
+  list-style: none;
+
+}
+
+.navbar_elements{
+  padding-right: 10%;
+}
+
+.fullbody{
+
+  background-image: url("../topography.png");
+
+}
+
+.container{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+
+.logo{
+
+  vertical-align: middle;
+  padding-left: 10%;
+  height: 3em;
+  width: auto;
+}
+
+.separator{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+
+
+h1{
+
+  font-family: 'Oswald', sans-serif;
+  font-size: 5em;
+}
+h2{
+  font-size: 4em;
+  font-family: 'Oswald', sans-serif;
+  color: #da2fe0;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+h3{
+  font-size: 3em;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h4{
+
+  font-size: 2em;
+  font-family: 'Oswald', sans-serif;
+}
+
+p{
+  font-size: 25px;
+}
