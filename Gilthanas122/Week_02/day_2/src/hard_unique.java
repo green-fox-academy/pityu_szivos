@@ -1,20 +1,28 @@
-/* public class hard_unique {
-        public static void main(String[] args) {
-            //  Create a function that takes a list of numbers as a parameter
-            //  Returns a list of numbers where every number in the list occurs only once
+import java.util.Arrays;
 
-            //  Example
+//BOT READY YET
 
-            int[] list_of_number = {1, 11, 34, 11, 52, 61, 1, 34};
+public class hard_unique {
+  public static void main(String[] args) {
 
-            for (int number:list_of_number) {
-                if list_of_number.contains(number){
-                ;
-            }
-            else{
-                int [] new_list = new_list[number];
-            }
-        }
+
+      int[] input = new int[]{1, 1, 18, 7, 9, 8, 9, 9, 9, 10};
+      Arrays.sort(input);
+      int current = input[0];
+      boolean found = false;
+      int[] new_list = new int[input.length];
+
+      for (int i = 0; i < input.length; i++) {
+          if (current == input[i] && !found) {
+              found = true;
+          } else if (current != input[i]) {
+              System.out.print(" " + current);
+              current = input[i];
+              found = false;
+          }
+      }
 
     }
-*/
+}
+
+

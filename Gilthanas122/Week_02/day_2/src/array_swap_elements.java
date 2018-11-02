@@ -4,8 +4,11 @@ public class array_swap_elements {
 
         String [] abc = {"first", "second", "third"};
 
+        String temp = abc[0];
         abc[0] = abc[2];
+        abc[2] = temp;
         System.out.println(abc[0]);
+        System.out.println(abc[2]);
     }
 
     // - Create an array variable named `abc`
