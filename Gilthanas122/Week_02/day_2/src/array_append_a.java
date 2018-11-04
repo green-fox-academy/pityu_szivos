@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class array_append_a {
     public static void main(String[] args){
 
@@ -11,6 +13,7 @@ public class array_append_a {
 
 
     }
+
 
     // - Create an array variable named `animals`
 //   with the following content: `["koal", "pand", "zebr"]`
