@@ -1,11 +1,11 @@
-/* import java.util.HashMap;
+import java.util.HashMap;
 
 public class notes_hashmap {
 
     public static void main(String[] args) {
         // store any object under a key -> no static order -> iteration different order
 
-        HashMap<String, String> hm = new Hashmap<String, String>;
+        HashMap<String, String> hm = new HashMap<String, String>();
 
         hm.put("Katie", "Android, Wordpress");
         hm.put("Magda", "Facebook");
@@ -15,22 +15,20 @@ public class notes_hashmap {
 
         // Hashmap iteration
 
-        for (String key: hm.keySet()){
+        for (String key : hm.keySet()) {
             System.out.println((key + ":" + hm.get(key)));
         }
         System.out.println();
 
-        if (hm.containsKey("Katie")){
+        if (hm.containsKey("Katie")) {
             System.out.println("Hashmap contains key 'Katie");
         }
         System.out.println();
 
-        if (hm.containsValue("Cooking")){
+        if (hm.containsValue("Cooking")) {
             System.out.println("Hash map contains Cooking");
-        }
-        else{
+        } else {
             System.out.println("Hashmap does not contain cooking");
         }
     }
 }
-*/
