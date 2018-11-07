@@ -11,14 +11,21 @@ public class hard_substringList {
 
         String search_for = "ching";
         int counter = 0;
+        boolean check = false;
         for (String n : searchArr) {
 
             if (n.contains(search_for)) {
                 System.out.println(counter);
+                check = false;
                 break;
             }
 
-        counter++;
+
+            counter++;
         }
-        System.out.println("-i");}
+        if (check = false) {
+            System.out.println("-i");
+            ;
+        }
     }
+}

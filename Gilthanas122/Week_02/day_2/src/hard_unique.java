@@ -1,7 +1,5 @@
 import java.util.Arrays;
 
-//BOT READY YET
-
 public class hard_unique {
   public static void main(String[] args) {
 
