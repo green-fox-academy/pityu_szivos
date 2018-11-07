@@ -15,15 +15,25 @@ public class drawing_connect_dots {
         // {120, 100}, {85, 130}, {50, 100}}
 
 
-        int [][] Array  = {{10, 10}, {290, 10}, {290, 290}, {10, 290}};
 
-        for (int i = 0; i <4 ; i++) {
-            for (int j = 0; j < ; j++) {
-                connectDots(Array, graphics);
-            }
 
-        }
+       int xPoints[] = {10, 290, 290, 10} ;
+       int yPoints [] = {10, 10, 290, 290};
+       int zPoints = 4;
 
+        draw_polygon(xPoints, yPoints, zPoints, graphics);
+
+        int xPoints_2[] = {60, 70, 80, 90, 100, 120, 85, 50} ;
+        int yPoints_2 [] = {100, 70, 90, 90, 70, 100, 130, 100};
+        int zPoints_2 = 8;
+
+        draw_polygon(xPoints_2, yPoints_2, zPoints_2, graphics);
+
+
+    }
+
+    public static void draw_polygon(int [] x, int [] y, int z, Graphics graphics){
+        graphics.drawPolygon(x, y, z);
 
     }
 public static void connectDots(Array[][] connecting, Graphics graphics){
@@ -54,3 +64,4 @@ public static void connectDots(Array[][] connecting, Graphics graphics){
         }
     }
 }
+

@@ -1,4 +1,4 @@
-/*import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class hard_subint {
@@ -9,14 +9,27 @@ public class hard_subint {
         //  Returns the indeces of the numbers in the list where the first number is part of
         //  Returns an empty list if the number is not part any of the numbers in the list
 
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 4, 6, 8, 10, 12));
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 4, 6, 8, 10, 12, 31, 41));
+        ArrayList<Integer> list_compared = new ArrayList<>();
+
+
         int num = 1;
-        System.out.println(subInt(list, num));
-                //  Example:
-       // System.out.println(subInt(1, new int[] {1, 11, 34, 52, 61}));
-        //  should print: `[0, 1, 4]`
-       // System.out.println(subInt(9, new int[] {1, 11, 34, 52, 61}));
-        //  should print: '[]'
+        for (int i = 0; i < list.size(); i++) {
+            int newNum = list.get(i);
+            while (newNum > 0) {
+                for (int j = 0; j < 5; j++) {
+
+                    if (newNum % 10 == num) {
+                        list_compared.add(list.get(i));
+                        newNum = Math.round(newNum / 10);
+                    } else {
+                        newNum = Math.round(newNum / 10);
+                    }
+                }
+
+            }
+        }
+        System.out.println(list_compared);
     }
 
     static public ArrayList subInt(ArrayList <Integer> array, int number){
@@ -32,4 +45,4 @@ public class hard_subint {
 
     }
 
-} */
+}

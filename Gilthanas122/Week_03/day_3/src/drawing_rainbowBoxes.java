@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 //NOT READY YET
 
@@ -15,13 +16,19 @@ public class drawing_rainbowBoxes {
         // and draws a square of that size and color to the center of the canvas.
         // Create a loop that fills the canvas with rainbow colored squares.
 
-        ArrayList<String> rainbow = new ArrayList<String>(Arrays.asList("RED","ORANGE","YELLOW","GREEN","BLUE", "INDIGO", "VIOLET"));
-        double square_size = 200;
+      List<Color> rainbow = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.BLUE, Color.ORANGE, Color.ORANGE);
+
+        double square_size = 3000;
         for (int i = 0; i < rainbow.size(); i++) {
 
-            double side_square = Math.sqrt(square_size);
-            graphics.drawRect(50, 50, 30, 30);
-            //graphics.setColor(Color.rainbow.get(i));
+           double side_square = Math.sqrt(square_size);
+           int sideSquare_2 = (int) Math.round(side_square);
+
+            graphics.setColor(rainbow.get(i));
+            graphics.fillRect(50, 50, sideSquare_2, sideSquare_2);
+
+            square_size = square_size - 300;
+
         }
 
 

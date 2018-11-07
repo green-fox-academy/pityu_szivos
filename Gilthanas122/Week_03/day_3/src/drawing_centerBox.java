@@ -27,8 +27,9 @@ public class drawing_centerBox {
     public static void draw_square (double size_square, Graphics graphics){
 
         double side_square = Math.sqrt(size_square);
+        int side_square_int = (int) side_square;
         graphics.setColor(Color.PINK);
-        graphics.drawRect(50, 50, (int)side_square, (int)side_square);
+        graphics.drawRect(180 - side_square_int, 180-side_square_int, (int)side_square, (int)side_square);
 
 
     }
