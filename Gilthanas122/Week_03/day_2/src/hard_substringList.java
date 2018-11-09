@@ -16,7 +16,7 @@ public class hard_substringList {
 
             if (n.contains(search_for)) {
                 System.out.println(counter);
-                check = false;
+                check = true;
                 break;
             }
 
@@ -24,8 +24,8 @@ public class hard_substringList {
             counter++;
         }
         if (check = false) {
-            System.out.println("-i");
-            ;
+            System.out.println("i");
+
         }
     }
 }

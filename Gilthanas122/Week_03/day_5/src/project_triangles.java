@@ -1,3 +1,5 @@
+import jdk.nashorn.internal.ir.WhileNode;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,19 +11,23 @@ public class project_triangles{
 
             int x = 160;
             int y = 50;
-            int row = 5;
+            int row = 11;
 
 
             for (int i = 0; i < row; i++) {         //row
                 for (int j = 0; j <= i; j++) {       // triangle
                     draw_triangle(x, y, graphics);
+
                     x = x + 50;
+
                 }
+
 
                 x = x - 50 * (i + 1) - 25;
                 y = y + 43;
             }
         }
+
 
 
         public static void draw_triangle(int x_coor, int y_coor, Graphics graphics){

@@ -4,16 +4,19 @@ public class hard_unique {
   public static void main(String[] args) {
 
 
-      int[] input = new int[]{1, 1, 18, 7, 9, 8, 9, 9, 9, 10};
+      int[] input = new int[]{1, 1, 1, 18, 7, 9, 8, 9, 9, 9, 10};
       Arrays.sort(input);
       int current = input[0];
-      boolean found = false;
-      int[] new_list = new int[input.length];
+        boolean found = false;
+      //int[] new_list = new int[input.length];
 
-      for (int i = 0; i < input.length; i++) {
+      for (int i = 0; i < input.length; i++) {       // if boolean is true, loops runs through if i =current
           if (current == input[i] && !found) {
-              found = true;
-          } else if (current != input[i]) {
+              found = true;                         // boolean value just for passing an argument
+
+          }
+
+          else if (current != input[i]) {
               System.out.print(" " + current);
               current = input[i];
               found = false;

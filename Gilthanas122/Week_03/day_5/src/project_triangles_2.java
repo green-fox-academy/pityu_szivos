@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
+//import static java.awt.image.ImageObserver.WIDTH;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 
@@ -18,12 +19,14 @@ public class project_triangles_2{
             for (int j = 0; j <= i; j++) {       // triangle
                 draw_triangle(x, y, graphics, side, height);
                 x = x + side;
+                // if ( x < 50 || x > 320 -x){
             }
 
             x = x - side * (i + 1) - side / 2;
             y = y + height;
         }
     }
+
 
 
     public static void draw_triangle(int x_coor, int y_coor, Graphics graphics, int side_in, int height_in){

@@ -1,4 +1,4 @@
-import java.io.File;
+/* import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -27,4 +27,4 @@ public class notes_exceptions_file_reading {
     }  // catch (Exception ex)  {                      from more specific to less specific
 
         }
-}
+} */
