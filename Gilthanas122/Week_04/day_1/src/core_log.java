@@ -11,7 +11,6 @@ public class core_log {
         returnIP(path);
         postGetRation(path);
 
-
     }
     public static void returnIP(String path_in){
 
@@ -37,23 +36,7 @@ public class core_log {
                 ip_list.add(split_list.get(i));
             }
             System.out.println(ip_list);
-            /*List <String> ip_list = new ArrayList<>();
-            // String current = split_list.get(0);
-            boolean found = false;
 
-
-            for (int i = 0; i < split_list.size(); i++) {       // if boolean is true, loops runs through if i =current
-                if (ip_list.contains(split_list.get(i)) && !found) {
-                    found = false;                         // boolean value just for passing an argument
-
-                }
-
-                else {
-                    ip_list.add(split_list.get(i));
-                    found = false;
-                }
-            }
-      */
         }
         catch (Exception e) {
                 System.out.println("Could not find file");
