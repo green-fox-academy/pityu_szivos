@@ -54,7 +54,7 @@ public class Ship {
             System.out.println("Ship1 has won!");
             return 0;
         } else if (this.crewList.size() - this.crewList.get(0).getRumCounter() == otherShip.crewList.size() - otherShip.crewList.get(0).getRumCounter()) {
-            System.out.println("The two ships could not beat each other");
+            System.out.println("The two ships destroyed each other");
 
             return 1;
         } else {
