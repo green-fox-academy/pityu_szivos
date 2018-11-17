@@ -9,9 +9,6 @@ public class WarApp {
         armada1.fillArmada();
         armada2.fillArmada();
 
-        armada1.printOutElement();
-        armada2.printOutElement();
-
         armada1.armadaBattle(armada2);
     }
 }

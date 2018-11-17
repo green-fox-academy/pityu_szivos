@@ -18,6 +18,8 @@ public class Pirate {
         this.isCaptain = false;
     }
 
+    //GETTER-SETTER-ADDER
+
     public boolean isCaptain() {
         return isCaptain;
     }
@@ -47,6 +49,8 @@ public class Pirate {
         isCaptain = true;
 
     }
+
+    //METHODS
 
     public void drinkSomeRumShip() {
         if (parrot == 1) {
