@@ -5,6 +5,7 @@ public class Aircraft {
     private int baseDamage;
     private int ammoCounter;
     private String type;
+    private boolean isPriority;
 
 
 
@@ -12,14 +13,16 @@ public class Aircraft {
         this.maxAmmo = 0;
         this.baseDamage = 0;
         this.ammoCounter = maxAmmo;
-        this.type = "";
+        this.type = "stuff";
+        this.isPriority = false;
     }
 
-    public Aircraft(int maxAmmo, int baseDamage, String type) {
+    public Aircraft(int maxAmmo, int baseDamage, String type, boolean isPriority) {
         this.maxAmmo = maxAmmo;
         this.baseDamage = baseDamage;
         this.ammoCounter = maxAmmo;
         this.type = type;
+        this.isPriority = isPriority;
     }
 
     public int getMaxAmmo() {
@@ -36,12 +39,24 @@ public class Aircraft {
     }
 
     public void refill(int addAmmo){
-        F16 f16 = new F16();
         int restAmmo = addAmmo - this.getMaxAmmo();
         System.out.println(restAmmo);
     }
 
-    public void getType(){
-        System.out.println(this.type);
+    public String getType(){
+        return this.type;
+    }
+
+    public void status(){
+        System.out.println("Aircraft type " + this.type + " Max ammo " + this.maxAmmo + " Base damage " + this.baseDamage);
+    }
+
+    public boolean isPriority(){
+        if(this.type == "F16"){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

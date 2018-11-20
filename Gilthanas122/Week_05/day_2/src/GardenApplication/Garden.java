@@ -3,7 +3,7 @@ package GardenApplication;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Garden extends Plant {
+public class Garden {
     private List <Plant> plantsGarden = new ArrayList<>();
 
 
@@ -15,7 +15,7 @@ public class Garden extends Plant {
         double portionWater = addWater / plantsGarden.size();
         for (Plant plant: plantsGarden) {
             if (plant.getAbsorbLevel()== 0.75){
-                plant.setThirst(plant.getThirst()-portionWater* getAbsorbLevel());
+                plant.setThirst(plant.getThirst()-portionWater* plant.getAbsorbLevel());
                 if (plant.getThirst() > 5){
                     System.out.println("The " + plant.getName() + " " + plant.isNeedsWater());
                     ;
