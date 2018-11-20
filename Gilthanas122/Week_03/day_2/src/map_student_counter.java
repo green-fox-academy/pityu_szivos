@@ -64,7 +64,7 @@ public class map_student_counter {
                 if (n > 4) {
                     Object value_name = entry.get("name");
                     if (!iterate_name.contains(value_name))
-                        System.out.println("Name: " + value_name);
+                        System.out.println(value_name + "has more than 4 candies");
                     iterate_name.add(value_name);
                 } else {
 
@@ -89,7 +89,7 @@ public class map_student_counter {
 
         }
 
-        System.out.println("Sum of the ages: " + sum_full);
+        System.out.println("Summed ages of people, who own less than 5 candies " + sum_full);
 
     }
 }

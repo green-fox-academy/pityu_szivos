@@ -2,16 +2,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class getLotteryNumbers {
 
     public static void main(String[] args) {
 
-        String path = "/home/pityu/home/Gilthanas122/Week_04/day_1/src/lottery.txt";
+        String pathString = "/home/pityu/home/Gilthanas122/Week_04/day_1/src/lottery.txt";
+        Path filePath = Paths.get(pathString);
 
-        getLottery(path);
+        getLottery(filePath);
 
     }
 
@@ -23,40 +23,46 @@ public class getLotteryNumbers {
             System.out.println(list);
 
             String listString = "";             // creating a string from list
-            for (String s: list) {
+            for (String s : list) {
                 listString += s + "\t";
             }
 
-            List <String> split_list = new ArrayList<>();           // splitting the list to block of lotter numbers
-            for (String s: listString.split(";")) {
+            List<String> split_list = new ArrayList<>();           // splitting the list to block of lotter numbers
+            for (String s : listString.split(";")) {
                 split_list.add(s);
+
+            }
+            System.out.println(Arrays.toString(split_list.toArray()));
+
+            List<String> lotteryNums = new ArrayList<>();
+
+            for (int i = 1; i < split_list.size(); i++) {           // getting lottery numbers by index
+                if (i % 12 == 0 || i % 13 == 0 || i % 14 == 0 || i % 15 == 0 || i % 16 == 0)
+                    lotteryNums.add(split_list.get(i-1));
             }
 
-            List <String> lotteryNums = new ArrayList<>();
+            System.out.println(Arrays.toString(lotteryNums.toArray()));
 
-            for (int i = 0; i <split_list.size() ; i++) {           // getting lottery numbers by index
-                for (int j = 11; j < 15 ; j++) {
-                    lotteryNums.add(split_list.get(j));
+            ArrayList<Map<Integer, Integer>> listOfMaps = new ArrayList<Map<Integer, Integer>>();
+        }
+           /* Collections.sort(lotteryNums);
+            List <String> listCountOccurences = new ArrayList<>();
+
+            for (int i = 0; i <lotteryNums.size() ; i++) {
+                if (i == 0){
+                    listCountOccurences.add(lotteryNums.get(i));
                 }
-            }
+                else if(list)
+            }*/
 
-            List <Integer> numbers = new ArrayList<>();
-            for(String s : lotteryNums) numbers.add(Integer.valueOf(s));        // Stringlist to int list
 
-            List <Integer> occurancesNum = new ArrayList<>();
 
-            for (int i = 1; i <= 90; i++) {
-
-                    numbers.get(i)equals(i);
-                }
-            }
+        // Given this list of hashmaps...
 
 
 
 
-            }
-
-        catch (IOException e){
+       catch(Exception e){
             System.out.println("Shit gone wrong");
         }
     }

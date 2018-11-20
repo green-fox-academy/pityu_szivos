@@ -2,30 +2,30 @@ package Pirates;
 
 public class Pirate {
 
-
     private int rumCounter;
     private boolean passedOut;
     private boolean dead;
-    private int parrot;
-    private boolean isCaptain;
-
+    private boolean Captain;
 
     public Pirate() {
 
         this.passedOut = false;
         this.dead = false;
-        this.parrot = (int) (Math.random() * 5) + 1;
-        this.isCaptain = false;
+        this.Captain = false;
     }
 
-    //GETTER-SETTER-ADDER
-
-    public boolean isCaptain() {
-        return isCaptain;
+    public boolean Captain() {
+        return Captain;
     }
 
     public int getParrot() {
-        return parrot;
+        int parrot = (int) ((Math.random() * 7) + 1);
+        if (parrot == 1) {
+            System.out.println("AARRRR INTERRRRUPTION!");
+            return parrot;
+        } else {
+            return parrot;
+        }
     }
 
     public int getRumCounter() {
@@ -46,26 +46,24 @@ public class Pirate {
     }
 
     public void setCaptain() {
-        isCaptain = true;
+        Captain = true;
 
     }
 
-    //METHODS
+    public boolean isDead() {
+        return dead;
+    }
 
     public void drinkSomeRumShip() {
-        if (parrot == 1) {
-            System.out.println("AARRRRR INTERRUPTION");
-        }
+        this.getParrot();
         int rumIn = (int) (Math.random() * 7) + 1;
         rumCounter = rumCounter + rumIn;
     }
 
     public void drinkSomeRum() {
         int rumIn = (int) (Math.random() * 7) + 1;
-        rumCounter = rumCounter + rumIn;
-        if (parrot == 1) {
-            System.out.println("AARRRRR INTERRUPTION");
-        }
+       this.rumCounter = rumCounter + rumIn;
+        this.getParrot();
         if (rumCounter < 5 && !passedOut) {
             System.out.println("Pour me anudder!");
             rumCounter = rumCounter + rumIn;
@@ -75,22 +73,16 @@ public class Pirate {
         }
     }
 
-    public void brawl(Pirate pirate1, Pirate pirate2) {
+   public void brawl(Pirate pirate) {
         int n = (int) (Math.random() * 3) + 1;
-        if (parrot == 1) {
-            System.out.println("AARRRRR INTERRUPTION");
-        }
-        if (n == 0) {
-            pirate1.setDead(true);
-        } else if (n == 1) {
-            pirate2.setDead(true);
+        this.getParrot();
+        if (n == 0 && !this.isDead()) {
+            this.setDead(true);
+        } else if (n == 1 && !pirate.isDead()) {
+            pirate.setDead(true);
         } else {
-            pirate1.setPassedOut(true);
-            pirate2.setPassedOut(true);
+            this.setPassedOut(true);
+            pirate.setPassedOut(true);
         }
     }
-
-
 }
-
-
