@@ -18,7 +18,6 @@ public class BattleApp {
         ship2.fillShip();
 
         ship1.battle(ship2);
-        ship1.printOutElement();
 
     }
 }

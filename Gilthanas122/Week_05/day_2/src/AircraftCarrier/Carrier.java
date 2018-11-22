@@ -49,7 +49,7 @@ public class Carrier extends Aircraft {
     }
 
     public int damageCarrier(Carrier carrier){
-        Carrier 
+        Carrier
         int damageCarrierIn = 0;
         for (Aircraft aircraft: Carrier.) {
 

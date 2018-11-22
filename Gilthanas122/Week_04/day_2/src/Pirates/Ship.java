@@ -20,7 +20,7 @@ public class Ship {
 
     public void fillShip() {
         int crew = (int) (Math.random() * 10) + 2;
-        Pirate pirate = new Pirate;
+        Pirate pirate = new Pirate();
         pirate.drinkSomeRumShip();
         crewMembers.add(pirate);
         pirate.setCaptain();
@@ -35,7 +35,6 @@ public class Ship {
 
             }
         }
-    }
 
     public int battle(Ship otherShip) {
         if (this.crewMembers.size() - this.crewMembers.get(0).getRumCounter() > otherShip.crewMembers.size() - otherShip.crewMembers.get(0).getRumCounter()) {
@@ -72,7 +71,7 @@ public class Ship {
     }
 
     @Override
-      public void toString2() {
+      public String toString() {
         for (Pirate pirate : crewMembers) {
             if (pirate.Captain()) {
                 System.out.printf("This is the captain.%nIs he awake: " + pirate.isPassedOut() + "%nHe drunk some " + pirate.getRumCounter() + " rums %n");
@@ -81,5 +80,6 @@ public class Ship {
             }
         }
         System.out.println("Crew alive: " + aliveMembers);
+        return "no";
     }
 }
