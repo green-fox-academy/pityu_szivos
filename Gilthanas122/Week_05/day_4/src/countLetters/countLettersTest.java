@@ -19,13 +19,12 @@ class countLettersTest {
 
     @Test
     void shouldBeSameMap(){
-        Map <Character, Integer> toSortMap = new HashMap<>();
         Map<Character, Integer> compareList = new HashMap<>();
         compareList.put('a', 1);
         compareList.put('p', 2);
         compareList.put('l', 1);
         compareList.put('e', 1);
-        assertEquals(compareList, countLetters.letterCounter("appe"));
+        assertEquals(compareList, countLetters.letterCounter("apple"));
     }
 
 }

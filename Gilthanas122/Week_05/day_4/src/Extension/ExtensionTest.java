@@ -37,7 +37,7 @@ class ExtensionTest {
 
     @Test
     void testMedian_four() {
-        assertEquals(8, extension.median(Arrays.asList(7,5,3,5)));
+        assertEquals(5, extension.median(Arrays.asList(7,5,3,5)));
     }
 
     @Test
@@ -52,16 +52,16 @@ class ExtensionTest {
 
     @Test
     void testIsVowel_u() {
-        assertTrue(extension.isVowel('u'));
+        assertTrue(extension.isVowel('U'));
     }
 
     @Test
     void testTranslate_bemutatkozik() {
-        assertEquals("bevemuvutavatkovozivik", extension.translate("bemutatkozik"));
+        assertEquals("bavabava", extension.translate("baba"));
     }
 
     @Test
     void testTranslate_lagopus() {
-        assertEquals("lavagovopuvus", extension.translate("lagopus"));
+        assertEquals("avalavagovopuvus", extension.translate("alagopus"));
     }
 }

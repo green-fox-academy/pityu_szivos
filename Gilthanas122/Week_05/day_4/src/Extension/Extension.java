@@ -1,6 +1,8 @@
 package Extension;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,29 +25,38 @@ public class Extension {
 
 
     int median(List<Integer> pool) {
-        if (pool.size() % 2 == 0){
-            return pool.get((pool.size()-1)/2) + pool.get((pool.size()-1) / 2 + 1);
-        }
-        else
+        Collections.sort(pool);
             return pool.get((pool.size()-1) / 2);
-
     }
 
     boolean isVowel(char c) {
-        return Arrays.asList('a', 'u', 'o', 'e', 'i').contains(c);
+        return Arrays.asList('a', 'u', 'o', 'e', 'i').contains(Character.toLowerCase(c));
     }
 
     String translate(String hungarian) {
-        String teve = hungarian;
-        int length = teve.length();
-        for (int i = 0; i < length; i++) {
-            char c = teve.charAt(i);
-            if (isVowel(c)) {
-                teve = String.join(c + "v" + c, teve.split(""+c));
-                i+=2;
-                length+=2;
+        List<Character> charList = new ArrayList<>();
+        List<Character> charList2 = new ArrayList<>();
+        for (int i = 0; i <hungarian.length() ; i++) {
+            charList.add(hungarian.charAt(i));
+        }
+        for (int i = 0; i <charList.size() ; i++) {
+            if (isVowel(charList.get(i)) && i == 0){
+                charList2.add(charList.get(i));
+                charList2.add('v');
+                charList2.add(charList.get(i));
+            }
+            else if(isVowel(charList.get(i))){
+                charList2.add(charList.get(i-1));
+                charList2.add(charList.get(i));
+                charList2.add('v');
+                charList2.add(charList.get(i));
+            }
+            else if(i == charList.size() -1){
+                charList2.add(charList.get(i));
             }
         }
-        return teve;
+        String str = charList2.stream().map(e->e.toString()).reduce((acc, e) -> acc  + e).get();
+        return str;
     }
+
 }
