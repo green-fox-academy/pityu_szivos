@@ -6,5 +6,10 @@ public class Main {
 
         System.out.println(reservation.getCodeBooking());
         System.out.println(reservation.getDowBooking);
+        reservation.printOut();
+        reservation.printOut();
+        reservation.printOut();
+        reservation.printOut();
+        reservation.printOut();
     }
 }
