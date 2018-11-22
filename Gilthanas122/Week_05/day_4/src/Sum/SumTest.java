@@ -14,28 +14,33 @@ class SumTest {
     Sum sum = new Sum();
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         Sum sum = new Sum();
     }
 
     @Test
-    void shouldAddListElements(){
+    void shouldAddListElements() {
         listNumbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
         assertEquals(15, sum.getSum(listNumbers));
     }
+
     @Test
-    void shouldAddListOneElements(){
+    void shouldAddListOneElements() {
         listNumbers = new ArrayList<>(Arrays.asList(1));
         assertEquals(15, sum.getSum(listNumbers));
     }
+
     @Test
-    void shouldAddListZeroElements(){
+    void shouldAddListZeroElements() {
         listNumbers = new ArrayList<>(Arrays.asList(0));
         assertEquals(0, sum.sumList(listNumbers));
     }
+
     @Test
-    void shouldAddListEmptyElements(){
-        listNumbers = new ArrayList<>(Arrays.asList());
-        assertEquals(null, sum.sumList(listNumbers));
+    public void itShouldThrowNullPointerExceptionWhenBlahBlah() {
+        assertThrows(NullPointerException.class,
+                () -> {
+                    sum.getSum(null);
+                });
     }
 }

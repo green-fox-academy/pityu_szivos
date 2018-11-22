@@ -3,20 +3,16 @@ package Music;
 public class EletricGuitar extends StringedInstruments {
 
     public EletricGuitar() {
-        name = "Electric guitar";
-        numberOfStrings = 6;
-        sound = "nyenye";
+    this(6);
     }
 
     public EletricGuitar(int numberOfString) {
-        this.name = "Electric guitar";
-        this.numberOfStrings = numberOfString;
-        this.sound = "nyenye";
+        super(numberOfString, "Electric guitar");
     }
 
     @Override
-    public void sound() {
-        System.out.println(name + " has " + numberOfStrings + "-strings " + sound + " sound");
+    public String sound(){
+        return "nyenye";
     }
 
 }

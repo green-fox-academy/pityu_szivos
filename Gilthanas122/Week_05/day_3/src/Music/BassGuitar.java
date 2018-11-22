@@ -4,19 +4,11 @@ public class BassGuitar extends StringedInstruments {
     protected String sound;
 
     public BassGuitar() {
-        name = "Bass guitar";
-        numberOfStrings = 4;
-        sound = "duum-duum-duum";
-    }
-
-    public BassGuitar(int numberOfString) {
-        name = "Electric guitar";
-        this.numberOfStrings = numberOfString;
-        sound = "duum-duum-duum";
+        super(4, "Bass Guitar");
     }
 
     @Override
-    public void sound() {
-        System.out.println(name + " has " + numberOfStrings + "-strings " + sound + " sound");
+    public String sound() {
+        return "Duum-duum-duum";
     }
 }
