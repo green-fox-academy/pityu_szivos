@@ -7,19 +7,18 @@ import java.util.Map;
 import java.util.Set;
 
 public class CountLetters {
-
-    public static String[] outputLists(HashMap<Character, Integer> map) {
-        Set<Character> keys = map.keySet();
-
-
+    public static void main(String[] args) {
+        letterCounter("aaafffaafb");
     }
+
     public static Map<Character, Integer> letterCounter(String input) {
         Map<Character, Integer> map = new HashMap<>();
         char[] arrayChar = input.toCharArray();
         for (char a : arrayChar) {
             if (map.containsKey(a)) {
-                int count = map.containsKey(a) ? map.get(a) : 0;
-                map.put(a, count + 1);
+              //int count = map.containsKey(a) ? map.get(a) : 0;
+                int count = map.get(a);
+                map.put(a, count +1);
             } else {
                 map.put(a, 1);
             }

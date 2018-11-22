@@ -7,7 +7,7 @@ import java.util.List;
 public class Sum {
 
 
-    private int sumList(List <Integer> numberList){
+    public int sumList(List <Integer> numberList){
         int sum = 0;
         for (int a: numberList) {
             sum = sum + a;

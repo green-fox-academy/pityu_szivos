@@ -4,6 +4,10 @@ import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class countLettersTest {
@@ -14,6 +18,14 @@ class countLettersTest {
     }
 
     @Test
-
+    void shouldBeSameMap(){
+        Map <Character, Integer> toSortMap = new HashMap<>();
+        Map<Character, Integer> compareList = new HashMap<>();
+        compareList.put('a', 1);
+        compareList.put('p', 2);
+        compareList.put('l', 1);
+        compareList.put('e', 1);
+        assertEquals(compareList, countLetters.letterCounter("appe"));
+    }
 
 }

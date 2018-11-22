@@ -14,7 +14,7 @@ class AnagramTest {
 
     @Test
     void shouldBeAnagram(){
-        String one = "dog";
+        String one = "dgo";
         String two = "god";
     assertTrue(anagram.anagram(one, two));
 
@@ -24,4 +24,11 @@ class AnagramTest {
         String two = "gog";
     assertFalse(anagram.anagram(one, two));
     }
+    @Test
+    void shouldNotBeAnagramDifferentLength(){
+        String one = "dogg";
+        String two = "gog";
+        assertTrue(anagram.anagram(one, two));
+    }
+
 }

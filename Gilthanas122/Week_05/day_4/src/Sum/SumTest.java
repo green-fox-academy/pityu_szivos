@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SumTest {
     List<Integer> listNumbers;
-
     Sum sum = new Sum();
+
     @BeforeEach
     void setUp(){
         Sum sum = new Sum();
@@ -30,7 +30,12 @@ class SumTest {
     }
     @Test
     void shouldAddListZeroElements(){
+        listNumbers = new ArrayList<>(Arrays.asList(0));
+        assertEquals(0, sum.sumList(listNumbers));
+    }
+    @Test
+    void shouldAddListEmptyElements(){
         listNumbers = new ArrayList<>(Arrays.asList());
-        assertEquals(15, sum.getSum(listNumbers));
+        assertEquals(null, sum.sumList(listNumbers));
     }
 }
