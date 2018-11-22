@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 import java.util.List;
 
 public class hard_palindrom_searcher {
@@ -30,4 +30,4 @@ public class hard_palindrom_searcher {
             System.out.println(listChar.subList(i1, i2));
         }
     }
-}
+}*/
