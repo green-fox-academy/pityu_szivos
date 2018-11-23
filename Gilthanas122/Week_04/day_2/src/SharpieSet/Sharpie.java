@@ -10,6 +10,12 @@ public class Sharpie {    //2. object category with these elements and methods a
     Double width = 10.00;
     Double inkAmount = 1.00;
 
+    public static void main(String[] args) {
+
+    }
+
+
+
     @Override
     public String toString() {
         return "Sharpie color "+color+ " width " + width + " ink amount " + inkAmount;
@@ -20,7 +26,7 @@ public class Sharpie {    //2. object category with these elements and methods a
         this.color = color;
         this.width = width;
         this.inkAmount = inkAmount;
-    }
+
 
 
     public void use(){

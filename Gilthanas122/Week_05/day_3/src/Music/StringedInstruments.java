@@ -14,6 +14,5 @@ public abstract class StringedInstruments extends Instrument {
     @Override
     public void play() {
         System.out.println(name + " has a " + numberOfStrings + "-strings " + sound() + " sound");
-        //String.format("%s , %d-stringed instrument that goes %s", name, numberOfStrings, sound());
     }
 }

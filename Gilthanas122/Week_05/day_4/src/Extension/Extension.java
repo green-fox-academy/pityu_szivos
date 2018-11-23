@@ -18,15 +18,13 @@ public class Extension {
             return a;
         } else if (b > a && b > c) {
             return b;
-        }
-        else
+        } else
             return c;
     }
 
-
     int median(List<Integer> pool) {
         Collections.sort(pool);
-            return pool.get((pool.size()-1) / 2);
+        return pool.get((pool.size() - 1) / 2);
     }
 
     boolean isVowel(char c) {
@@ -36,26 +34,24 @@ public class Extension {
     String translate(String hungarian) {
         List<Character> charList = new ArrayList<>();
         List<Character> charList2 = new ArrayList<>();
-        for (int i = 0; i <hungarian.length() ; i++) {
+        for (int i = 0; i < hungarian.length(); i++) {
             charList.add(hungarian.charAt(i));
         }
-        for (int i = 0; i <charList.size() ; i++) {
-            if (isVowel(charList.get(i)) && i == 0){
+        for (int i = 0; i < charList.size(); i++) {
+            if (isVowel(charList.get(i)) && i == 0) {
                 charList2.add(charList.get(i));
                 charList2.add('v');
                 charList2.add(charList.get(i));
-            }
-            else if(isVowel(charList.get(i))){
-                charList2.add(charList.get(i-1));
+                charList2.add(charList.get(i));
+            } else if (isVowel(charList.get(i))) {
+                charList2.add(charList.get(i - 1));
                 charList2.add(charList.get(i));
                 charList2.add('v');
-                charList2.add(charList.get(i));
-            }
-            else if(i == charList.size() -1){
+            } else if (i == charList.size() - 1) {
                 charList2.add(charList.get(i));
             }
         }
-        String str = charList2.stream().map(e->e.toString()).reduce((acc, e) -> acc  + e).get();
+        String str = charList2.stream().map(e -> e.toString()).reduce((acc, e) -> acc + e).get();
         return str;
     }
 

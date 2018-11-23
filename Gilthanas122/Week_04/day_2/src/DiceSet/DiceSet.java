@@ -9,10 +9,14 @@ public class DiceSet {
 
 
     public ArrayList<Integer> roll() {
+        methodPrivate();
+        return dice;
+    }
+
+    private void methodPrivate() {
         for (int i = 0; i < 6; i++) {
             dice.add((int) (Math.random() * 6) + 1);
         }
-        return dice;
     }
 
     public List<Integer> getCurrent() {

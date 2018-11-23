@@ -14,7 +14,7 @@ public class Main {
 
         System.out.println("Test 2, create Electric Guitar, Bass Guitar with 7 and 5 strings .");
         EletricGuitar guitar2 = new EletricGuitar(7);
-        BassGuitar bassGuitar2 = new BassGuitar(5);
+        BassGuitar bassGuitar2 = new BassGuitar();
 
         System.out.println("Test 2 Play");
         guitar2.play();
