@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class practiceReadAllLines {
+/*public class practiceReadAllLines {
     public static void main(String[] args) {
         String filePath = "/home/pityu/home/Gilthanas122/Week_04/Practice/src/myText.txt";
         Path filePath2 = Paths.get(filePath);
@@ -25,4 +25,4 @@ public static void returnIP(String path_in){
         Path filePath = Paths.get(path_in);
 
         List<String> list = Files.readAllLines(filePath);
-        String listString = "";
+        String listString = "";*/
