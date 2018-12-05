@@ -1,18 +1,21 @@
 package Zoo;
 
 public abstract class Animal {
-
-    protected String name;
-    protected int age;
-    protected String gender;
+    String name;
+    int age;
+    String gender;
+    int legs;
 
     public Animal() {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+        this.name = "Animal Joe";
+        this.age = 30;
+        this.gender = "male";
+        this.legs = 3;
     }
 
+    public String getName() {
+        return name;
+    }
 
-    public abstract void getName();
-    public abstract void breed();
+    public abstract String breed();
 }

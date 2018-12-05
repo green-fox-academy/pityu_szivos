@@ -38,9 +38,9 @@ public class Aircraft {
         System.out.println("The dealt damage: " + damageCounter);
     }
 
-    public void refill(int addAmmo){
+    public int refill(int addAmmo){
         int restAmmo = addAmmo - this.getMaxAmmo();
-        System.out.println(restAmmo);
+        return restAmmo;
     }
 
     public String getType(){

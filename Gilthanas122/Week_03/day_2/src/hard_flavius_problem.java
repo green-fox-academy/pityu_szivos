@@ -24,8 +24,6 @@ public class hard_flavius_problem {
 
         int counter = 1;
         while (arraylist_circle.size() > 1) {
-
-
             if (counter < arraylist_circle.size()) {
                 arraylist_circle.remove(counter);
                 counter ++;

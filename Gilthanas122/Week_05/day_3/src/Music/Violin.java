@@ -8,6 +8,6 @@ public class Violin extends StringedInstruments {
 
     @Override
     public String sound() {
-        return this.sound;
+        return "vooooiin";
     }
 }

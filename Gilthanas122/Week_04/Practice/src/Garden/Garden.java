@@ -6,23 +6,16 @@ import java.util.List;
 public abstract class Garden {
     protected double absorptionLevel;
     protected boolean isThirsty;
-    protected int waterLevel;
     protected String color;
-    protected List<Garden> gardenElements;
+    private List<Garden> gardenElements;
     protected int amountWaterNeeded;
 
 
     public Garden() {
         this.isThirsty = true;
-        this.waterLevel = 0;
         gardenElements = new ArrayList<Garden>();
     }
 
-    public Garden(String color, double absorptionLevel) {
-        this.absorptionLevel = absorptionLevel;
-        this.color = color;
-
-    }
 
     public void setThirsty(boolean thirsty) {
         isThirsty = thirsty;

@@ -8,29 +8,18 @@ public class practiceNElementdelete {
         int[] arrayInt = {1, 2, 3, 4, 1, 2, 3, 4, 1, 2};
         Arrays.sort(arrayInt);
         Arrays.asList(arrayInt);
-
         List <Integer> listSorted = new ArrayList<>();
-
-
         System.out.println(Arrays.toString(arrayInt));
 
         int counter = 0;
-        int n = 1;
+        boolean isIn = false;
         for (int i = 0; i < arrayInt.length ; i++) {
             if (i == 0){
                 listSorted.add(arrayInt[i]);
-                counter ++;
-            }
-            else if (counter <= n){
+            }else if(arrayInt[i - 1] != arrayInt[i]){
                 listSorted.add(arrayInt[i]);
-                counter++;
             }
-            else {
-                counter = 0;
-            }
-
         }
         System.out.println(Arrays.toString(listSorted.toArray()));
-
     }
 }

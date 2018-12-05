@@ -2,12 +2,13 @@ package Zoo;
 
 public class Main {
     public static void main(String[] args) {
-        Reptile joe = new Reptile("Jack", 120, "male");
-        Mammal moe = new Mammal("Moey", 300, "female");
+        Reptile joe = new Reptile("Joe the Crocodile");
+        Mammal nick = new Mammal("Nick the beaver");
+        Bird bird = new Bird("Eagle Todd");
 
-        joe.breed();
-        joe.getName();
-        moe.breed();
-        moe.getName();
+        System.out.println("How do you breed?");
+        System.out.println("A " + joe.getName() + " is breeding by " + joe.breed());
+        System.out.println("A " + nick.getName() + " is breeding by " + nick.breed());
+        System.out.println("A " + bird.getName() + " is breeding by " + bird.breed());
     }
 }

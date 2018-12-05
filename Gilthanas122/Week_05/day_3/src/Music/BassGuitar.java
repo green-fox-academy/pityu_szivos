@@ -4,7 +4,7 @@ public class BassGuitar extends StringedInstruments {
     protected String sound;
 
     public BassGuitar() {
-        super(4, "Bass Guitar");
+        super(5, "Bass Guitar");
     }
 
     @Override

@@ -29,31 +29,23 @@ public class Carrier extends Aircraft {
 
     public void fillAircraft() {
         List<Aircraft> sortedCarrier = new ArrayList<>(carrierList.size());
-        int counterPriority = 0;
-        int counterNonPriority = 1;
-        for (int i = 0; i < carrierList.size(); i++) {
-            if (carrierList.get(i).isPriority()) {
-                sortedCarrier.add(counterPriority , carrierList.get(i));
-                counterPriority++;
-            } else {
-                sortedCarrier.add(sortedCarrier.size() - counterNonPriority, carrierList.get(i));
-                counterNonPriority++;
+        for (Aircraft aircraft: carrierList) {
+            if(aircraft.isPriority()){
+                sortedCarrier.add(0, aircraft);
+            } else if(sortedCarrier.size() == 1 && !aircraft.isPriority()) {
+                sortedCarrier.add(1, aircraft);
+            } else{
+                sortedCarrier.add(sortedCarrier.size() -1, aircraft);
             }
         }
         for (Aircraft aircraft2 : sortedCarrier) {
             if (ammoStorage - aircraft2.getMaxAmmo() > 0) {
+                aircraft2.refill(ammoStorage);
                 ammoStorage = ammoStorage - aircraft2.getMaxAmmo();
             }
         }
         System.out.println(ammoStorage);
     }
 
-    public int damageCarrier(Carrier carrier){
-        Carrier
-        int damageCarrierIn = 0;
-        for (Aircraft aircraft: Carrier.) {
-
-        }
-    }
 
 }
