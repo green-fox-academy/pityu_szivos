@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Contains Nike</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/Webshop-style.css}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <p>My shop</p>
+        <hr>
+    </header>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <button type="button" class="btn btn-secondary" onclick="location.href='/only-available'"> Only available</button>
+            <button type="button" class="btn btn-secondary"onclick="location.href='/cheapest'">Cheapest first</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href='/has-nike'">Contains nike</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href='/average-stock'">Average Stock</button>
+            <button type="button" class="btn btn-secondary"onclick="location.href='/get-most-expensive'">Most expensive available</button>
+
+        </div>
+    </nav>
+
+    <form class="form-inline my-2 my-lg-0">
+        <p> Search for:</p>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" placeholder="searchfor">Search</button>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity Stock</th>
+        </tr>
+        </thead>
+
+        <tr th:each="item : ${hasnike}">
+            <td th:text="${item.getName()}"></td>
+            <td th:text="${item.getDescription()}"></td>
+            <td th:text="${item.getPrice()}"></td>
+        </tr>
+
+    </table>
+</div>
+
+</body>
+</html>

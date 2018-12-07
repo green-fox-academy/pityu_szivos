@@ -1,0 +1,21 @@
+.container{
+    width: 50%;
+}
+
+.containerin{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebyside input, button{
+    display: block;
+}
+
+#centerdiv{
+    margin-top: 30px;
+}
+
+#rightdiv{
+    horiz-align: right;
+}
+
