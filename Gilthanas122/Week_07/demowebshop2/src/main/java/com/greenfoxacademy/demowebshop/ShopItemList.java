@@ -1,9 +1,8 @@
 package com.greenfoxacademy.demowebshop;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ShopItemList implements Serializable {
       private List<ShopItem> shopItemList;
@@ -13,39 +12,21 @@ public class ShopItemList implements Serializable {
     }
 
     public void fillUpDefaultstuff(){
-        ShopItem runningShoes = new ShopItem("running shoes", "this nike is good to run in it and is fancy", 100, 5);
-        ShopItem trousers = new ShopItem("black trouses", "dark and pricey like everything in this shop", 80, 0);
-        ShopItem gloves = new ShopItem("leather gloves", "made from bear skin", 150, 1);
-        shopItemList.add(runningShoes);
-        shopItemList.add(runningShoes);
-        shopItemList.add(runningShoes);
-        shopItemList.add(runningShoes);
-        shopItemList.add(trousers);
-        shopItemList.add(trousers);
-        shopItemList.add(trousers);
-        shopItemList.add(gloves);
-        shopItemList.add(gloves);
-        shopItemList.add(gloves);
+        shopItemList.add(new ShopItem("running shoes", "this nike is good to run in it and is fancy", 100, 5));
+        shopItemList.add(new ShopItem("running shoes", "this nike is good to run in it and is fancy", 100, 5));
+        shopItemList.add(new ShopItem("black trouses", "dark and pricey like everything in this shop", 80, 0));
+        shopItemList.add(new ShopItem("black trouses", "dark and pricey like everything in this shop", 80, 0));
+        shopItemList.add(new ShopItem("black trouses", "dark and pricey like everything in this shop", 80, 0));
+        shopItemList.add(new ShopItem("leather gloves", "made from bear skin", 150, 1));
+        shopItemList.add(new ShopItem("leather gloves", "made from bear skin", 150, 1));
     }
 
     public ShopItem getMostexpensive(){
-        ShopItem stuff = new ShopItem("stuff","desc", 0, 0);
-        for (ShopItem item: shopItemList) {
-            if (item.getPrice() > stuff.getPrice()){
-                stuff = item;
-            }
-        }
-        return stuff;
+        return Collections.max(shopItemList, (entry1, entry2) -> entry1.getPrice() - entry2.getPrice());
     }
 
     public List <ShopItem> getOnlyAvailable(){
-        List <ShopItem> onlyAvailable = new ArrayList<>();
-        for (ShopItem item: shopItemList) {
-            if (item.getQuantity() != 0){
-                onlyAvailable.add(item);
-            }
-        }
-        return onlyAvailable;
+        return shopItemList.stream().filter(item -> item.getQuantity()!= 0).collect(Collectors.toList());
     }
 
     public List<ShopItem> getShopItemList() {
@@ -53,37 +34,25 @@ public class ShopItemList implements Serializable {
     }
 
     public List <ShopItem> getNike(){
-        List <ShopItem> hasNike = new ArrayList<>();
-        for (ShopItem item: shopItemList) {
-            if(item.getName().contains("nike") || item.getDescription().contains("nike")){
-                hasNike.add(item);
-            }
-        }
-        return hasNike;
+        return shopItemList.stream()
+                .filter(item -> item.getName().contains("nike") || item.getDescription().contains("nike"))
+                .collect(Collectors.toList());
     }
 
     public List <ShopItem> cheapestFirst(){
-        List <ShopItem> cheapest = new ArrayList<>();
-        shopItemList.sort(Comparator.comparing(o -> o.getPrice()));
+       shopItemList.sort(Comparator.comparing(o -> o.getPrice()));
         return shopItemList;
     }
 
     public String getAverageStock(){
-        int sum = 0;
-        for (ShopItem item: shopItemList) {
-            sum = sum+ item.getQuantity();
-        }
-        int average = sum / shopItemList.size();
+        int average = shopItemList.stream()
+                .filter(o -> o.getQuantity()>0)
+                .mapToInt(o -> o.getQuantity()).sum() / shopItemList.size();
         return Integer.toString(average);
     }
 
     public List <ShopItem> searchResult(String name){
-        List <ShopItem> searchResultList = new ArrayList<>();
-        for (ShopItem item: shopItemList) {
-            if (item.getDescription().contains(name) || item.getName().contains(name)){
-                searchResultList.add(item);
-            }
-        }
-        return shopItemList;
+      return shopItemList.stream()
+                .filter(o -> o.getDescription().contains(name) || o.getName().contains(name)).collect(Collectors.toList());
     }
 }
