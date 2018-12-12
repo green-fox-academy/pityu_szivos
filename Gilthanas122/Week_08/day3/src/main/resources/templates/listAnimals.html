@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Animals</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+
+<table th:method="get" th:action="@{/listAnimals}">
+    <thead>
+    <th>Count</th>
+    <th>Name</th>
+    <th>Balance</th>
+    <th>Race</th>
+    <th>Bad boy</th>
+    <th>King</th>
+    </thead>
+    <tr th:each="client: ${clients}" th:style="${client.isKing()} ? 'color:red' : 'color:black'">
+        <td th:text="${clientStat.count}"></td>
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.balance}"></td>
+        <td th:text="${client.animalType}"></td>
+        <td th:if="${client.balance} < 2000"> BAD BOY</td>
+        <td th:if="${client.balance} >= 2000"> GOOD BOY</td>
+        <td id="king" th:if="${client.isKing()}"> KING</td>
+    </tr>
+</table>
+
+<form th:action="@{/add}" th:method="post">
+    <label for="name"> ADD MONEY to your favurite animal. Type in his/her name</label>
+    <input type="text"  id="name" name="name" >
+    <button type="submit" name="Submit" th:text="STUFF"></button>
+</form>
+<form th:action="@{/adduser}" th:method="post">
+    <button type="submit">ADD NEW USER</button>
+</form>
+
+</body>
+</html>

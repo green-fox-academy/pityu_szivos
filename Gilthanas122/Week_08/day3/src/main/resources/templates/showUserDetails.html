@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Details</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+
+<div th:object="${client}" th:action="@{/show}" th:method="get">
+    <p th:text = "|User name *{name}|"></p>
+    <p th:text = "|User balance *{#numbers.formatDecimal(balance, 0, 'DEFAULT', 2, 'DEFAULT')}|"> </p>
+    <p th:text = "|User race *{animalType}|"></p>
+</div>
+
+</body>
+</html>
