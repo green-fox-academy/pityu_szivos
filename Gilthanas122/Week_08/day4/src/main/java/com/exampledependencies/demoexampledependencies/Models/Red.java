@@ -4,7 +4,7 @@ import com.exampledependencies.demoexampledependencies.Services.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("Blue")
+@Service
 public class Red implements MyColor {
     private String color;
     @Autowired
@@ -16,7 +16,7 @@ public class Red implements MyColor {
 
     @Override
     public void printColor() {
-      printer.log("It is" + this.color +  " in color...");
+      printer.log("It is " + this.color +  " in color...");
     }
 
     public String getColor() {

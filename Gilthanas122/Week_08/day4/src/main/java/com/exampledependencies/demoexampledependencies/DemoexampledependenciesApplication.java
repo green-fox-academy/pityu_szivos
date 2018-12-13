@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DemoexampledependenciesApplication implements CommandLineRunner {
     Printer printer;
-   MyColor blue;
+    MyColor blue;
 
     @Autowired
     public DemoexampledependenciesApplication(Printer printer, MyColor blue) {

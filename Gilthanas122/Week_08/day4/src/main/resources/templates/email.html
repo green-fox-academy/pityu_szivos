@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Email</title>
+</head>
+<body>
+<table>
+    <tr th:style="${isvalid}? 'background-color:green' : 'background-color:red'" >
+        <td th:if="${isvalid}" th:text="| ${emailaddress} is valid|"></td>
+        <td th:if="!${isvalid}" th:text="|${emailaddress} is not valid|"></td>
+    </tr>
+</table>
+</body>
+</html>
