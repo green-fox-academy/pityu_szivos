@@ -6,7 +6,15 @@
 </head>
 <body>
 
-<p th:text="${caesar}"></p>
+<form th:method = "get" th:action="@{/useful}">
+    <label for="text"> Fill in your text to convert</label>
+    <input id="text" name="text" th:text="${text}">
+    <label for="number"> Fill in your number to shift letters</label>
+    <input id="number" name="number" th:text="${number}">
+    <button type="submit"> SUBMIT</button>
+</form>
+
+
 
 </body>
 </html>

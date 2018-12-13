@@ -5,11 +5,9 @@
     <title>Email</title>
 </head>
 <body>
-<table>
-    <tr th:style="${isvalid}? 'background-color:green' : 'background-color:red'" >
-        <td th:if="${isvalid}" th:text="| ${emailaddress} is valid|"></td>
-        <td th:if="!${isvalid}" th:text="|${emailaddress} is not valid|"></td>
-    </tr>
-</table>
+<form th:method = "get" th:action="@{/useful2}">
+    <label for="email"> Fill in your email</label>
+    <input id="email" name="email" th:text="${email}">
+</form>
 </body>
 </html>

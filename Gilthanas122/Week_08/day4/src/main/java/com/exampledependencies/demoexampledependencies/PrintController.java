@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.rmi.CORBA.Util;
 import java.nio.file.Path;
+import java.util.Optional;
 
 @Controller
 public class PrintController {
     UtilityService utilityService;
     MyColor color;
-    String email;
-    String text;
-    Integer number;
+
 
     @Autowired
     public PrintController(MyColor color, UtilityService utilityService) {
@@ -26,11 +25,6 @@ public class PrintController {
         this.utilityService = utilityService;
     }
 
-    @GetMapping("/useful")
-    public String listUtilityServices(String email, Model model, String text, Integer number){
-        model.addAttribute("email", email);
-        return "main";
-    }
 
     @GetMapping("useful/background")
     public String setBackgroundColor(Model model){
@@ -39,16 +33,33 @@ public class PrintController {
     }
 
     @GetMapping(path="/useful/email")
-    public String validateEmail(Model model, @RequestParam String email){
-        model.addAttribute("isvalid", utilityService.validateEmail(email));
-        model.addAttribute("emailaddress", email);
+    public String validateEmail(Model model, String email){
+        model.addAttribute("email", email);
         return "email";
     }
 
     @GetMapping("useful/caesar")
-    public String caesar(Model model, @RequestParam String text,@RequestParam Integer number){
-       model.addAttribute("caesar", utilityService.caesar(text, number));
+    public String caesar(Model model, String text, Integer number){
+       model.addAttribute("text", text);
+       model.addAttribute("number", number);
        return "caesar";
+    }
+
+
+    @GetMapping("/useful2")
+    public String listUtilityServicesEmail(Model model,  @RequestParam String email){
+        if ( model.addAttribute("isvalid", utilityService.validateEmail(email)) == null){
+           return "main";
+        }
+        model.addAttribute("isvalid", utilityService.validateEmail(email));
+        model.addAttribute("emailaddress", email);
+        return "main";
+    }
+
+    @GetMapping("/useful")
+    public String listUtilityServicesShifter(Model model, @RequestParam String text, @RequestParam  Integer number){
+        model.addAttribute("caesar", utilityService.caesar(text, number));
+        return "main";
     }
 
 }

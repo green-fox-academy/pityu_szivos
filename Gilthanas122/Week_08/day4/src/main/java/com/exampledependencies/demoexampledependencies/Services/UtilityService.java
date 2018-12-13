@@ -9,6 +9,9 @@ import java.util.Random;
 public class UtilityService {
     ArrayList<String> colors;
     Random random;
+    String email;
+    String text;
+    Integer number;
 
     public UtilityService() {
         colors = new ArrayList<>();
