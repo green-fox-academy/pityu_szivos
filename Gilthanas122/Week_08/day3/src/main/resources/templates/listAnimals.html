@@ -16,14 +16,14 @@
     <th>Bad boy</th>
     <th>King</th>
     </thead>
-    <tr th:each="client: ${clients}" th:style="${client.isKing()} ? 'color:red' : 'color:black'">
+    <tr th:each="client: ${clients}" th:style="${client.getKing()} ? 'color:red' : 'color:black'">
         <td th:text="${clientStat.count}"></td>
         <td th:text="${client.name}"></td>
         <td th:text="${client.balance}"></td>
         <td th:text="${client.animalType}"></td>
         <td th:if="${client.balance} < 2000"> BAD BOY</td>
         <td th:if="${client.balance} >= 2000"> GOOD BOY</td>
-        <td id="king" th:if="${client.isKing()}"> KING</td>
+        <td id="king" th:if="${client.getKing()}"> KING</td>
     </tr>
 </table>
 

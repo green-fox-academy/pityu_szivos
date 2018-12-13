@@ -41,7 +41,7 @@ public class BankController {
     @PostMapping("/add")
     public String greetingSubmit(@RequestParam String name) {
         for (BankAccount bankAccount : clientAnimals) {
-            if (bankAccount.getName().toLowerCase().equals(name.toLowerCase()) && bankAccount.isKing()) {
+            if (bankAccount.getName().toLowerCase().equals(name.toLowerCase()) && bankAccount.getKing()) {
                 bankAccount.setBalance(bankAccount.getBalance() + 100);
             } else if (bankAccount.getName().toLowerCase().equals(name.toLowerCase())) {
                 bankAccount.setBalance(bankAccount.getBalance() + 10);
@@ -50,10 +50,10 @@ public class BankController {
         return "redirect:/listAnimals";
     }
 
-    @GetMapping("/adduser")
+    @GetMapping(value = "/adduser")
     public String addUserGET(Model model, @ModelAttribute (name = "bankAccount") BankAccount bankAccount) {
         model.addAttribute("bankAccount", bankAccount);
-        return "addUser";
+        return "adduser";
     }
 
     @PostMapping("/adduser")
