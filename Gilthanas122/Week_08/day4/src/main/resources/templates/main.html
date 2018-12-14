@@ -2,18 +2,32 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Useful utilities</title>
+    <link th:href="@{/css/mystyle-main.css}" href="/css/mystyle-main.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body th:style="|background-color: ${color}|">
 
-<div class="container-email" th:switch="${isvalid}" th:style="${isvalid}? 'background-color:green' : 'background-color:red'">
-    <div th:case="true" class="container jumbotron"  th:text="| ${emailaddress} is valid|"> </div>
-    <div th:case="false" class="container jumbotron"  th:text="|${emailaddress} is not valid|"> </div>
+<div class="container">
+        <ul>
+            <li><a th:href="@{/useful/home}">Home</a></li>
+            <li><a th:href="@{/useful/caesar}">Caesar</a></li>
+            <li><a th:href="@{/useful/email}">Email</a></li>
+        </ul>
+    <div class="container-show" th:switch="${isvalid}"
+         th:style="${isvalid}? 'background-color:green' : 'background-color:red'">
+        <div th:case="true" class="jumbotron" th:text="| ${emailaddress} is valid|"></div>
+        <div th:case="false" class="jumbotron" th:text="|${emailaddress} is not valid|"></div>
+    </div>
+
+    <div th:switch="${caesar}" class="container-show">
+        <div th:case="null"></div>
+        <div class="jumbotron" th:case="*" th:text="${caesar}"></div>
+
+    </div>
 </div>
-<div  th:switch="${caesar}"  class="container-caesar">
-    <div class="container jumbotron" th:case="true" th:text="${caesar}"></div>
-</div>
+
 
 </body>
 </html>

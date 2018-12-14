@@ -25,11 +25,16 @@ public class PrintController {
         this.utilityService = utilityService;
     }
 
+    @GetMapping("/useful/home")
+    public String usefulHome(){
+        return "main";
+    }
+
 
     @GetMapping("useful/background")
     public String setBackgroundColor(Model model){
         model.addAttribute("color", utilityService.randomColor());
-        return "coloredBackground";
+        return "main";
     }
 
     @GetMapping(path="/useful/email")
@@ -45,7 +50,6 @@ public class PrintController {
        return "caesar";
     }
 
-
     @GetMapping("/useful2")
     public String listUtilityServicesEmail(Model model,  @RequestParam String email){
         if ( model.addAttribute("isvalid", utilityService.validateEmail(email)) == null){
@@ -56,7 +60,7 @@ public class PrintController {
         return "main";
     }
 
-    @GetMapping("/useful")
+    @PostMapping("/useful")
     public String listUtilityServicesShifter(Model model, @RequestParam String text, @RequestParam  Integer number){
         model.addAttribute("caesar", utilityService.caesar(text, number));
         return "main";
