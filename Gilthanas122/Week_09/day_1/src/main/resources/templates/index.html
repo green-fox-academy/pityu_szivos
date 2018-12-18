@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ToDo Liss</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/css/my_style.css}" type="text/css">
+</head>
+<body>
+<h1>ToDos for today</h1>
+<a href="/additem"> ADD NEW TODO</a>
+<table>
+    <thead>
+    <th> ID </th>
+    <th> ACTION </th>
+    <th> DONE </th>
+    <th> URGENT </th>
+    </thead>
+    <tbody>
+    <tr th:each="title: ${repository}">
+        <td th:text = "${title.title}"></td>
+        <td th:text = "${title.id}"></td>
+        <td th:text = "${title.done}"></td>
+        <td th:text = "${title.done}"></td>
+        <td> <form th:method="post" th:action="@{|/${title.id}/deleteitem|}">
+            <input th:type="submit" th:value="delete">
+        </form>
+        </td>
+        <td> <form th:method="get" th:action="@{|/${title.id}/edit|}">
+            <input th:type="submit" th:value="edit">
+        </form>
+        </td>
+       <!-- <td> <a th:href="@{|/${title.id}/deleteitem|}"> Delete</a> </td> -->
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -52,9 +52,6 @@ public class PrintController {
 
     @GetMapping("/useful2")
     public String listUtilityServicesEmail(Model model,  @RequestParam String email){
-        if ( model.addAttribute("isvalid", utilityService.validateEmail(email)) == null){
-           return "main";
-        }
         model.addAttribute("isvalid", utilityService.validateEmail(email));
         model.addAttribute("emailaddress", email);
         return "main";
