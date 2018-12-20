@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Email</title>
-    <link th:href="@{/css/mystyle-main.css}" href="/css/mystyle-main.css" rel="stylesheet" type="text/css"/>
+    <title>Fox Club Login</title>
+    <link th:href="@{/css/mystyle-index.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div class="container">
-    <form th:method = "get" th:action="@{/useful2}">
-        <label for="email"> Fill in your email</label>
-        <input id="email" name="email" th:text="${email}">
-    </form>
-</div>
+<h1> Welcome to Login page</h1>
+<p>Please provide your name</p>
+<form th:action ="@{/login}" th:method="post">
+    <label for="name"> Name</label>
+    <input id="name" name="name" th:text="${name}">
+    <button type="submit">GO!</button>
+</form>
 
 </body>
 </html>

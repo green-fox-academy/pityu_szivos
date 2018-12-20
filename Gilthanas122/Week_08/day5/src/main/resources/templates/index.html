@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Index Fox Club</title>
+    <link th:href="@{/css/mystyle-index.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div><a href="#">Information</a></div>
+<div>
+    <img th:src="@{img/greenfox.png}" alt="greenfox pic">
+</div>
+<div>
+    <p th:text="|This is Mr. ${name} he currently lives on drugs and coke|"></p>
+</div>
+<div>
+    <h2>Tricks</h2>
+    <select name="tricks">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+</div>
+
+<form th:action="@{/nutrition-store}" th:method="get">
+    <button class="btn btn-warning" name = "name"  type="submit" th:object="${name}">Submit</button>
+</form>
+
+
+</body>
+</html>
