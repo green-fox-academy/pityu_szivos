@@ -1,9 +1,6 @@
 package com.todo.demotodoweek9persistence.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ToDo {
@@ -11,24 +8,38 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
+    private String content;
+    private String description;
     private Boolean urgent;
     private Boolean done;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Assignee assignee;
 
     public ToDo() {
         urgent = false;
-        done =  false;
+        done = false;
     }
 
-    public ToDo(String title){
+    public ToDo(String title, String content, String description) {
         this.title = title;
+        this.content = content;
+        this.description = description;
         urgent = false;
-        done =  false;
+        done = false;
     }
 
-    public ToDo(String title, Boolean urgent, Boolean done){
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
+    public ToDo(String title, Boolean urgent, Boolean done) {
         this.title = title;
         this.urgent = urgent;
         this.done = done;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
     }
 
     public Long getId() {
@@ -61,5 +72,21 @@ public class ToDo {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

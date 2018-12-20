@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reddit postss</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/my_style.css}" type="text/css">
+</head>
+<body>
+<a th:href="@{/addpost}" class="btn btn-success "> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;ADD NEW Post</a>
+<div class="container">
+    <h1> Trending posts</h1>
+</div>
+<table class="table table-hover">
+    <tr th:each="post: ${redditposts}" th:if="${post.id}<10">
+        <td th:text="${post.likeCounter}"></td>
+        <td>
+            <form th:method="post" th:action="@{|/${post.id}/voteup|}">
+            <input class="btn btn-default" type="submit" value="+">
+            </form> </td>
+        <td>
+            <form th:method="post" th:action="@{|/${post.id}/votedown|}">
+                <input class="btn btn-default" type="submit" value="-">
+            </form> </td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.url}"></td>
+        <td th:text="${post.date}"></td>
+    </tr>
+
+</table>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>

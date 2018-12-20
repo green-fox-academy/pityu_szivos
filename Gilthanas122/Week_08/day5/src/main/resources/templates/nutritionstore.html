@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Nutrition store</title>
+    <link th:href="@{/css/mystyle-index.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/nutrition-store}" th:method="post" th:object="${fox}">
+        <label for="food">Food</label>
+        <select th:value="*{setHungry(false)}" name="food" id="food" required>
+            <option> Pizza</option>
+            <option >Salad</option>
+            <option >Peanut</option>
+            <option>Eat shit</option>
+        </select>
+
+        <label for="drink">Drinks</label>
+        <select th:value="*{setThirsty(false)}" name="drink" id="drink" required>
+            <option>Coke</option>
+            <option>Beer</option>
+            <option>Water</option>
+            <option>Drink piss</option>
+        </select>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+
+
+
+</div>
+</body>
+</html>

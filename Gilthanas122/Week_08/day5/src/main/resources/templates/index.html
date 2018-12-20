@@ -17,7 +17,17 @@
 </div>
 <div>
     <h2>Tricks</h2>
+    <select name="tricks">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
 </div>
+
+<form th:action="@{/nutrition-store}" th:method="get">
+    <button class="btn btn-warning" name = "name"  type="submit" th:object="${name}">Submit</button>
+</form>
 
 
 </body>
