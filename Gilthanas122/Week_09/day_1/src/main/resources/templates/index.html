@@ -25,6 +25,8 @@
             <th scope="col"> ACTION</th>
             <th scope="col"> Content</th>
             <th scope="col"> Description</th>
+            <th scope="col"> Time posted</th>
+            <th scope="col"> Due date/th>
             <th scope="col"> Assignee</th>
             <th scope="col"> DONE</th>
             <th scope="col"> URGENT</th>
@@ -39,7 +41,9 @@
             <td th:text="${title.title}"></td>
             <td th:text="${title.content}"></td>
             <td th:text="${title.description}"></td>
-            <td th:text="${title.assignee != null} ? ${title.assignee.getName()} : 'No assignee yet'">
+            <td th:text="${title.data}"></td>
+            <td th:text="${title.dueDate}"></td>
+            <td th:href="@{/assignees/{id} (id = ${title.assignee.id})}" th:text="${title.assignee != null} ? ${title.assignee.getName()} : 'No assignee yet'">
             </td>
             <td th:switch="${title.done}">
                 <span th:case="true" class="glyphicon glyphicon-ok"></span>

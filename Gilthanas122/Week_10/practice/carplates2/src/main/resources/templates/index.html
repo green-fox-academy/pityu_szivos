@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Reddit Clone Alpha 1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <a class="btn btn-warning" th:href="@{/searchresult?police=1}"> List police cars</a>
+    <a th:href="@{/searchresult?diplomat=1}" class="btn btn-warning"> List diplomat cars </a>
+</header>
+<h1>CHECK IF YOUR CAR IS IN THE DATABASE</h1>
+<form th:method="get" th:action="@{/searchresult}">
+    <label for="licencePlate"> Fill in your car plates</label>
+    <input autofocus  id="licencePlate" type="text" name="licencePlate" maxlength="7" pattern="^[A-Za-z0-9-]{1,7}" title="Hungarian Number Plate(3 letters-3 nums or 2 letters - 4 nums">
+    <input th:type="button" type="submit" value="search">
+    <input type="reset" value="reset">
+</form>
+<table th:if="${cars} != null"  class="table table-hover">
+    <thead>
+    <tr>
+        <th>Licence Plate</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>Year</th>
+    </tr>
+    </thead>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.licencePlate}"> </td>
+        <td> <a name="brand" th:href="@{/list-brand/{brand} (brand = ${car.brand})}" th:text="${car.brand}"></a> </td>
+        <td th:text="${car.model}"> </td>
+        <td th:text="${car.color}"> </td>
+        <td th:text="${car.year}"> </td>
+    </tr>
+</table>
+<p th:if="${cars} == null"> Sorry, no matches found</p>
+</body>
+</html>

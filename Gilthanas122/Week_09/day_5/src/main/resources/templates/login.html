@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reddit postss</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/my_style.css}" type="text/css">
+</head>
+<body>
+<div class="container">
+    <h1> Hello my Friend, the new user. Please give me your name</h1>
+    <form th:object="${user}" th:method="post" th:action="@{/login}">
+
+        <label for="username"><b>Username</b></label>
+        <input th:type="text" placeholder="Enter Username" name="uname" id="username" th:field="*{name}" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="password" th:field="*{password}" required>
+        <button type="submit">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </form>
+
+</div>
+</body>
+</html>

@@ -9,5 +9,6 @@ public interface AssigneeRepository extends CrudRepository <Assignee, Long>{
 
     List<Assignee> findAllByName(String name);
     Assignee findByName(String text);
+     List <Assignee> findAllByNameContains(String name);
 
 }

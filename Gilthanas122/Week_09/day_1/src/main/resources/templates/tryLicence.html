@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Try licence plate</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/my_style.css}" type="text/css">
+</head>
+<body>
+
+<form action="done" method="post">
+    Number Plate: <input type="text" name="number plate" pattern="^([A-Za-z]{3}-?[0-9]{3})?([A-Za-z]{2}-?[0-9]{4})?$" title="Hungarian Number Plate(3 letters-3 nums or 2 letters - 4 nums">
+    <input type="submit">
+</form>
+
+<h2 th:text="|${oneassignee.name}'s assigned todos:|"></h2>
+
+<ul>
+
+    <li th:each="todo : ${oneassignee.todos}">
+        <span th:if="${todo.title != null}" th:text="*{todo.title}"></span>
+        <span th:unless="${todo.title != null}">Nothing here yet</span>
+    </li>
+</ul>
+
+</body>
+</html>

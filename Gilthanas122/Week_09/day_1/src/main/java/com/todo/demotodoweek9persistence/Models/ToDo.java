@@ -1,6 +1,10 @@
 package com.todo.demotodoweek9persistence.Models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.xml.crypto.Data;
+import java.util.Date;
 
 @Entity
 public class ToDo {
@@ -12,12 +16,21 @@ public class ToDo {
     private String description;
     private Boolean urgent;
     private Boolean done;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date data;
+
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "mm-dd-yyyy")
+    private Date dueDate = new Date();
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Assignee assignee;
 
     public ToDo() {
         urgent = false;
         done = false;
+        data = new Date();
     }
 
     public ToDo(String title, String content, String description) {
@@ -26,6 +39,7 @@ public class ToDo {
         this.description = description;
         urgent = false;
         done = false;
+        data = new Date();
     }
 
     public void setAssignee(Assignee assignee) {
@@ -88,5 +102,21 @@ public class ToDo {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 }

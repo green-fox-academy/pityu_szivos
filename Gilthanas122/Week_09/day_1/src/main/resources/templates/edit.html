@@ -12,6 +12,12 @@
     <h1> EDIT ITEM</h1>
     <label for="title">Title</label>
     <input name="title" id="title" th:field="*{title}" required>
+    <label for="content">Content</label>
+    <input name="content" id="content" th:field="*{content}" required>
+    <label for="Description">Description</label>
+    <input name="description" id="description" th:field="*{description}" required>
+    <label for="dueDate">Due date</label>
+    <input type="date" name="dueDate" id="dueDate" th:field="*{dueDate}" required>
     <label for="urgent">Urgent</label>
     <input type="radio" name="urgent" id="urgent" th:value="true" th:field="*{urgent}">
     <label for="done">Done</label>

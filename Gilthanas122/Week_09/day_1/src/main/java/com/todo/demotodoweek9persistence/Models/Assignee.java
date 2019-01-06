@@ -9,7 +9,9 @@ public class Assignee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "Assignee_Name")
     private String name;
+    @Column(name = "Assignee_Email")
     private String email;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -45,6 +47,11 @@ public class Assignee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @PreRemove
+    public void setNull(){
+        todos.forEach(a -> a.setAssignee(null));
     }
 
     @Override
