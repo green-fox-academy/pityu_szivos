@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Order your pizza</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <a th:href="@{|/order/${order.getId()}|}"></a>
+</header>
+
+<form method="post" th:action="@{/order}" th:object="${order}" class="form">
+    <label for="name"></label>
+    <input placeholder="Fill in your name" id="name" required th:field="*{name}">
+    <label for="address"></label>
+    <input placeholder="Fill in your name" id="address" required th:field="*{address}">
+    <select th:field="*{pizza}">
+        <option th:value="'diavola'" th:text="Diavola"></option>
+        <option th:value="'hawaii'" th:text="Hawaii"></option>
+        <option th:value="'funghi'" th:text="Fungi"></option>
+    </select>
+    <button value="submit" type="submit">Submit</button>
+</form>
+
+<table class="table table-hover">
+    <tr th:object="${orderReceived}">
+        <td th:text="*{name}"></td>
+        <td th:text="*{address}"></td>
+        <td th:text="*{pizza}"></td>
+    </tr>
+</table>
+</body>
+</html>
